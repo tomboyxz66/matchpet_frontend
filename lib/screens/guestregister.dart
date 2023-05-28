@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:newmatchpet/screens/home.dart';
 import 'package:newmatchpet/screens/mainscreens.dart';
-
+import '../controller/registercontroller.dart';
 import '../utility/my_style.dart';
 
 class GuestRegister extends StatefulWidget {
@@ -12,7 +13,24 @@ class GuestRegister extends StatefulWidget {
 }
 
 class _GuestRegisterState extends State<GuestRegister> {
-  String? choosType, name, lastName, user, passWord, tel, email;
+  final registerapicontroller = Get.put(Register_controlle());
+
+  String username = "admin88";
+  String email = "admins88@example.com";
+  String password = "admin";
+  String name = "Tom5";
+  String species = "Cat";
+  String gender = "Female";
+  int age = 5;
+
+  @override
+  void initState() {
+    registerapicontroller.registerAPI(
+        username, email, password, name, species, gender, age);
+    super.initState();
+  }
+
+  String? choosType, lastName, user, passWord, tel;
 
   String itemDog = 'Pomeranian';
   List<String> dogList = [

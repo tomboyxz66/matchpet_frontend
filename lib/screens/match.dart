@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+import 'package:newmatchpet/controller/match/getpetcontroller.dart';
 import 'package:newmatchpet/utility/my_style.dart';
 import 'package:newmatchpet/utility/appinio_swiper/example_buttons.dart';
 import 'package:newmatchpet/utility/appinio_swiper/example_card.dart';

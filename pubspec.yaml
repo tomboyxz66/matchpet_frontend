@@ -38,6 +38,8 @@ dependencies:
   flutter_card_swiper: ^5.1.0
   appinio_swiper: ^2.0.0
   flutter_switch: ^0.3.2
+  get: ^4.6.5
+  dio: ^5.1.2
 
 dev_dependencies:
   flutter_test:
