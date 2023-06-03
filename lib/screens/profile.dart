@@ -15,50 +15,47 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(padding: EdgeInsets.all(30.0), children: [
-        addImage1(),
+        Column(
+          children: [
+            ListTile(
+              leading: Image.asset('images/logo-petnotitel.png'),
+              title: Text('Card Title'),
+              subtitle: Text('Card Subtitle'),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+              ),
+            ),
+            MyStyle().mySizedBox(),
+            Divider(color: Colors.black),
+            MyStyle().mySizedBox(),
+            Text('สัตว์เลี้ยงของคุณ',
+                style: TextStyle(fontWeight: FontWeight.bold)),
+            MyStyle().mySizedBox(),
+            IconButton(
+              icon: Icon(Icons.add_box_outlined),
+              onPressed: () {},
+            ),
+            Text('เพิ่มสัตว์เลี้ยง'),
+            MyStyle().mySizedBox(),
+            ListTile(
+              leading: Image.asset('images/logo-pet.png'),
+              title: Text('Card Title'),
+              subtitle: Text('Card Subtitle'),
+            ),
+            ListTile(
+              leading: Image.asset('images/logo-pet.png'),
+              title: Text('Card Title'),
+              subtitle: Text('Card Subtitle'),
+              trailing: Row(
+                mainAxisSize: MainAxisSize.min,
+              ),
+            ),
+            MyStyle().mySizedBox(),
+            MyStyle().mySizedBox(),
+            IconButton(onPressed: () {}, icon: Icon(Icons.exit_to_app)),
+          ],
+        )
       ]),
-    );
-  }
-
-  Column addImage1() {
-    return Column(
-      children: [
-        Container(
-          width: 250.0,
-          child: Image.asset(
-            'images/logo-pet.png',
-          ),
-        ),
-        iconProfile(),
-        MyStyle().mySizedBox(),
-        Divider(color: Colors.black),
-        MyStyle().mySizedBox(),
-        Text('สัตว์เลี้ยงของคุณ',
-            style: TextStyle(fontWeight: FontWeight.bold)),
-        MyStyle().mySizedBox(),
-        Row(
-          children: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.add_box_outlined)),
-            Text('เพิ่มสัตว์เลี้ยงของคุณ')
-          ],
-        ),
-        Row(
-          children: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.add_box_outlined)),
-            Text('เพิ่มสัตว์เลี้ยงของคุณ')
-          ],
-        ),
-        IconButton(onPressed: () {}, icon: Icon(Icons.exit_to_app)),
-      ],
-    );
-  }
-
-  Row iconProfile() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        IconButton(onPressed: () {}, icon: Icon(Icons.draw_rounded)),
-      ],
     );
   }
 }

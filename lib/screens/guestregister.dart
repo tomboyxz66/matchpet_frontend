@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:newmatchpet/screens/home.dart';
 import 'package:newmatchpet/screens/mainscreens.dart';
+import 'package:newmatchpet/screens/message.dart';
 import '../controller/registercontroller.dart';
 import '../utility/my_style.dart';
 
@@ -24,12 +25,6 @@ class _GuestRegisterState extends State<GuestRegister> {
   int age = 5;
 
   @override
-  void initState() {
-    registerapicontroller.registerAPI(
-        username, email, password, name, species, gender, age);
-    super.initState();
-  }
-
   String? choosType, lastName, user, passWord, tel;
 
   String itemDog = 'Pomeranian';
@@ -105,7 +100,7 @@ class _GuestRegisterState extends State<GuestRegister> {
           onPressed: () {
             Navigator.pop(context);
             MaterialPageRoute route =
-                MaterialPageRoute(builder: (value) => Home());
+                MaterialPageRoute(builder: (value) => MessageScreen());
             Navigator.push(context, route);
           },
         ),

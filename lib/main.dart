@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:newmatchpet/screens/home.dart';
+import 'package:newmatchpet/router/router.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
-  runApp(MyApp());
+void main() async {
+  await GetStorage.init();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -14,6 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Matchpet',
       home: Home(),
+      // getPages: appRoutes()
     );
   }
 }

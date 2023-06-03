@@ -5,6 +5,7 @@ import 'package:newmatchpet/controller/match/getpetcontroller.dart';
 import 'package:newmatchpet/controller/match/matchcontroller.dart';
 import 'package:newmatchpet/controller/profile/insertpetscontroller.dart';
 import 'package:newmatchpet/utility/my_style.dart';
+import 'package:newmatchpet/utility/normalDialog.dart';
 import 'home.dart';
 import 'mainscreens.dart';
 
@@ -16,49 +17,9 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
-  // final Loginapicontroller = Get.put(Login_controller());
-  // String username = "admins";
-  // String password = "admin";
-
-  // void initState() {
-  //   Loginapicontroller.loginAPI(username, password);
-  //   super.initState();
-  // }
-
-  // final getpetcontroller = Get.put(getpet_controller());
-  // int user_id = 1;
-
-  // void initState() {
-  //   getpetcontroller.getPetAPI();
-  //   super.initState();
-  // }
-
-  final insertPetcontroller = Get.put(InsertPet_controller());
-
-  String username = "admin5";
-  int user_id = 8;
-  String name = "Tom 3";
-  String species = "Cat";
-  String gender = "Female";
-  int age = 5;
-
-  void initState() {
-    insertPetcontroller.insertPetAPI(
-        username, user_id, name, species, gender, age);
-    super.initState();
-  }
-
-  // final matchcontroller = Get.put(Match_controller());
-  // int user1_id = 1;
-  // int user2_id = 2;
-  // int pet1_id = 1;
-  // int pet2_id = 3;
-  // bool is_checked = true;
-
-  // void initState() {
-  //   matchcontroller.matchAPI(user1_id, user2_id, pet1_id, pet2_id, is_checked);
-  //   super.initState();
-  // }
+  final Loginapicontroller = Get.put(Login_controller());
+  String? username;
+  String? password;
 
   @override
   Widget build(BuildContext context) {
@@ -90,6 +51,7 @@ class _SignInState extends State<SignIn> {
                 Container(
                   width: 250.0,
                   child: TextField(
+                    onChanged: (value) => username = value.trim(),
                     decoration: InputDecoration(
                       prefixIcon: Icon(
                         Icons.account_box,
@@ -112,6 +74,7 @@ class _SignInState extends State<SignIn> {
                 Container(
                   width: 250.0,
                   child: TextField(
+                    onChanged: (value) => password = value.trim(),
                     obscureText: true,
                     decoration: InputDecoration(
                       prefixIcon: Icon(
@@ -136,16 +99,24 @@ class _SignInState extends State<SignIn> {
                   width: 250.0,
                   child: ElevatedButton(
                     onPressed: () {
-                      setState(() {
-                        // getpetcontroller.getPetAPI(1);
-                        // if ((Loginapicontroller.loginData.value.data!.users) !=
-                        //     null) {}
-                        // Loginapicontroller.loginAPI(username, password);
-                        // Navigator.pop(context);
-                        // MaterialPageRoute route = MaterialPageRoute(
-                        //     builder: (value) => Mainscreens());
-                        // Navigator.push(context, route);
-                      });
+                      print("name=$username,password=$password");
+
+                      if (password == '' ||
+                          password == null && username == '' ||
+                          username == null) {
+                        print('กรุณาใส่ข้อมูลให้ครบถ้วน');
+                        normalDialog(context, 'กรุณาใส่ข้อมูลให้ครบถ้วน');
+                      } else {
+                        Loginapicontroller.loginAPI(
+                            username ?? '', password ?? '');
+                        if (Loginapicontroller.loginData.value.message ==
+                            'เข้าสู่ระบบสำเร็จ') {
+                          Navigator.pop(context);
+                          MaterialPageRoute route = MaterialPageRoute(
+                              builder: (value) => Mainscreens());
+                          Navigator.push(context, route);
+                        }
+                      }
                     },
                     child: Text('เข้าสู่ระบบ'),
                     style: ElevatedButton.styleFrom(

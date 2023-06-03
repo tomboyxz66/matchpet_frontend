@@ -18,22 +18,24 @@ class _AddMatchState extends State<AddMatch> {
         child: ListView.builder(
           itemCount: 5,
           itemBuilder: (context, index) {
-            return ListTile(
-              leading: Image.asset('images/logo-pet.png'),
-              title: Text('Card Title'),
-              subtitle: Text('Card Subtitle'),
-              trailing: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  IconButton(
-                    icon: Icon(Icons.favorite),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.block),
-                    onPressed: () {},
-                  ),
-                ],
+            return Card(
+              child: ListTile(
+                leading: Image.asset('images/logo-pet.png'),
+                title: Text('Card Title'),
+                subtitle: Text('Card Subtitle'),
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      icon: Icon(Icons.favorite),
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.block),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
               ),
             );
           },

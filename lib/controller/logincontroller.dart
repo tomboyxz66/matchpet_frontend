@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:dio/dio.dart';
 import 'package:newmatchpet/model/loginmodel.dart';
@@ -13,6 +14,7 @@ class Login_controller extends GetxController {
       var responseLogin = await dio.post('http://10.0.2.2:8000/api/login',
           data: {"username": username, "password": password});
       if (responseLogin.statusCode == 200) {
+        //   Get
         loginData.value = login_Model.fromJson(responseLogin.data);
         print(loginData.value.data?.users ?? 'NO DATA');
       }

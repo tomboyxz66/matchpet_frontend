@@ -35,22 +35,16 @@ class _MainscreensState extends State<Mainscreens> {
         child: pagelist.elementAt(_tapIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: (MyStyle().fontColor),
-
-        //type
-        type: BottomNavigationBarType.fixed,
+        unselectedItemColor: MyStyle().redColor.withOpacity(0.5),
+        selectedItemColor: Colors.redAccent[400],
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         onTap: (int index) {
           setState(() {
             _tapIndex = index;
           });
         },
-
-        ///////////////////////////////
         currentIndex: _tapIndex,
-
-        selectedItemColor: MyStyle().redColor,
-
-        ////////////////////////////////////
         items: const [
           BottomNavigationBarItem(
               icon: Icon(
